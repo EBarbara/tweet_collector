@@ -1,0 +1,6 @@
+# Visual Studio Files
+.vscode/
+
+# Config files
+settings.ini
+.env
