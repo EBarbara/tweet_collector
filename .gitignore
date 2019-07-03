@@ -4,3 +4,6 @@
 # Config files
 settings.ini
 .env
+
+# Result files
+*.csv

@@ -11,7 +11,13 @@ consumer_secret = config('CONSUMER_SECRET')
 access_token = config('ACCESS_TOKEN')
 access_token_secret = config('ACCESS_TOKEN_SECRET')
 
-RIO_BOUNDS = [-23.08, -43.79, -22.77, -43.13]
+# Around Manhattan
+REGION_BOUNDS = [
+    config('LIMIT_WEST'),
+    config('LIMIT_SOUTH'),
+    config('LIMIT_EAST'),
+    config('LIMIT_NORTH')
+]
 
 
 def extract_coordinates(coordinate_data, location_data):
@@ -55,6 +61,7 @@ class StdOutListener(tweepy.StreamListener):
     def on_data(self, data):
         tweet_json = json.loads(html.unescape(data))
         tweet = preprocessing(tweet_json)
+        print(tweet[4])
 
         with open("tweets.csv", 'a', encoding='utf-8') as csv_file:
             field_names = ['id', 'time', 'latitude', 'longitude', 'text']
@@ -87,4 +94,4 @@ if __name__ == '__main__':
     start_time = str(datetime.now().time())
     print("START STREAMING ON " + start_time)
     stream = tweepy.Stream(auth, listener)
-    stream.filter(locations=RIO_BOUNDS)
+    stream.filter(locations=REGION_BOUNDS)
