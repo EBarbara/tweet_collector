@@ -13,10 +13,10 @@ access_token_secret = config('ACCESS_TOKEN_SECRET')
 
 # Around Manhattan
 REGION_BOUNDS = [
-    config('LIMIT_WEST'),
-    config('LIMIT_SOUTH'),
-    config('LIMIT_EAST'),
-    config('LIMIT_NORTH')
+    config('LIMIT_WEST', cast=float),
+    config('LIMIT_SOUTH', cast=float),
+    config('LIMIT_EAST', cast=float),
+    config('LIMIT_NORTH', cast=float)
 ]
 
 
