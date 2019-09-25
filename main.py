@@ -94,4 +94,7 @@ if __name__ == '__main__':
     start_time = str(datetime.now().time())
     print("START STREAMING ON " + start_time)
     stream = tweepy.Stream(auth, listener)
-    stream.filter(locations=REGION_BOUNDS)
+    stream.filter(
+        languages=['pt'],
+        locations=REGION_BOUNDS
+    )
