@@ -1,3 +1,5 @@
 flake8
+nltk
+pandas
 python-decouple
 tweepy
