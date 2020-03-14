@@ -1,6 +1,9 @@
 # Visual Studio Files
 .vscode/
 
+# System files
+*.pyc
+
 # Config files
 settings.ini
 .env
